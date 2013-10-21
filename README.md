@@ -3,6 +3,23 @@ jcountdown
 
 Simple countdown as JQuery plugin
 
+## Usage
+
+1. Add `jcountdown.js` to your document
+
+2. Prepare HTML code for countdown
+```html
+	<span id="countdown" data-time="60"></span>
+```
+
+3. Init countdown
+
+```javascript
+$(function(){
+    $('#countdown').countdown();
+});
+```
+
 ### Examples
 
 * single element
