@@ -1,5 +1,5 @@
 (function($) {
-	$.fn.countdown = function(selector){
+	$.fn.countdown = function(){
 
 		var inttotime = function(val) {
 			var 
@@ -23,12 +23,12 @@
 		}
 		
 		var step = function(timer) {
-			var left = parseInt(timer.data('left'));
+			var left = parseInt(timer.data('time'));
 			
 			timer.text(inttotime(left));
 			
 			if (left > 0) {
-				timer.data('left', left - 1);
+				timer.data('time', left - 1);
 				setTimeout(function() {step(timer)},1000);
 			}
 		}
@@ -36,9 +36,8 @@
 		return this.each(function() {
 			var self = $(this);
 
-	   		if (!self.data('initilized')) {
-				self.data('left', parseInt(self.attr('start-time')));
-				self.data('initilized', true);
+	   		if (!self.data('countdown')) {
+				self.data('countdown', true);
 				
 				step(self);
 			}
