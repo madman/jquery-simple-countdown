@@ -12,7 +12,7 @@ Simple countdown as JQuery plugin
 ```
 
 ```javascript
-$('#countdown').jcountdown();
+$('#countdown').countdown();
 ```
 
 * multi elements
@@ -25,7 +25,7 @@ $('#countdown').jcountdown();
 ```
 
 ```javascript
-$('.countdown').jcountdown();
+$('.countdown').countdown();
 ```
 
 ## Requirements
