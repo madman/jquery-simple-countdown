@@ -2,7 +2,8 @@
 	$.fn.countdown = function(options, callback){
 
 		if ($.isFunction(options)) {
-			callback = callback || options;
+			callback = options;
+			options = {};
 		}
 
 		var defaults = {
