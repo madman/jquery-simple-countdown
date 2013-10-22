@@ -2,7 +2,7 @@
 	$.fn.countdown = function(options, callback){
 
 		if ($.isFunction(options) {
-			callback = .callback || options;
+			callback = callback || options;
 		}
 
 		var defaults = {
@@ -40,6 +40,9 @@
 			if (left > 0) {
 				timer.data(settings.data, left - 1);
 				setTimeout(function() {step(timer)},1000);
+			} elseif ($.isFunction(self.data('callback'))) {
+				var callback = self.data('callback');
+				callback();
 			}
 		}
 	
@@ -48,6 +51,7 @@
 
 	   		if (!self.data('countdown')) {
 				self.data('countdown', true);
+				self.data('callback', callback);
 				
 				step(self);
 			}
