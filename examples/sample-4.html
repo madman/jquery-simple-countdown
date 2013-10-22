@@ -4,12 +4,12 @@
 		<script type="text/javascript" src="../js/jcountdown.js"></script>
 	</head>
 	<body>
-		<h1>Simple countdown</h1>
+		<h1>Countdown with callback</h1>
 		<span id="countdown" data-time="10"></span>
 
 		<script type="text/javascript">
 			$(function() {
-				$('#countdown').countdown();
+				$('#countdown').countdown(function() {alert('Your time is up')});
 			});
 		</script>
 	</body>

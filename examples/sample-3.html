@@ -4,12 +4,14 @@
 		<script type="text/javascript" src="../js/jcountdown.js"></script>
 	</head>
 	<body>
-		<h1>Simple countdown</h1>
-		<span id="countdown" data-time="10"></span>
+		<h1>Countdown with options</h1>
+		<span id="countdown" data-left="10"></span>
 
 		<script type="text/javascript">
 			$(function() {
-				$('#countdown').countdown();
+				$('#countdown').countdown({
+					data: 'left',
+				});
 			});
 		</script>
 	</body>
