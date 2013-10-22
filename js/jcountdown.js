@@ -1,5 +1,15 @@
 (function($) {
-	$.fn.countdown = function(){
+	$.fn.countdown = function(options, callback){
+
+		if ($.isFunction(options) {
+			callback = callback || options;
+		}
+
+		var defaults = {
+ 			data: 'time'
+		};
+		var settings = $.extend({}, defaults, options);
+
 
 		var inttotime = function(val) {
 			var 
@@ -23,13 +33,16 @@
 		}
 		
 		var step = function(timer) {
-			var left = parseInt(timer.data('time'));
+			var left = parseInt(timer.data(settings.data));
 			
 			timer.text(inttotime(left));
 			
 			if (left > 0) {
-				timer.data('time', left - 1);
+				timer.data(settings.data, left - 1);
 				setTimeout(function() {step(timer)},1000);
+			} elseif ($.isFunction(self.data('callback'))) {
+				var callback = self.data('callback');
+				callback();
 			}
 		}
 	
@@ -38,6 +51,7 @@
 
 	   		if (!self.data('countdown')) {
 				self.data('countdown', true);
+				self.data('callback', callback);
 				
 				step(self);
 			}
