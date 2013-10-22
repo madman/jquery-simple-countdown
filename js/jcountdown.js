@@ -47,7 +47,7 @@
 				setTimeout(function() {step(timer)},1000);
 			} else if (callback = timer.data(settings.callback)) {
 				if ($.isFunction(callback)) {
-					callback();
+					callback.call(null, timer);
 				}
 			}
 		}
