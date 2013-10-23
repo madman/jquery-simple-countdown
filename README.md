@@ -1,4 +1,4 @@
-jcountdown
+jquery-countdown
 ==========
 
 Simple countdown as JQuery plugin
