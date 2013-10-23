@@ -1,3 +1,10 @@
+/*!
+ * jQuery Simple Countdown Plugin v1.0
+ * https://github.com/madman/jquery-simple-countdown
+ *
+ * Copyright 2013 Klaus Hartl
+ * Released under the MIT license
+ */
 (function($) {
 	$.fn.countdown = function(options, callback){
 
@@ -14,7 +21,7 @@
 		var settings = $.extend({}, defaults, options);
 
 
-		var inttotime = function(val) {
+		var intToTime = function(val) {
 			var 
 				hours = (Math.floor(val / 3600)),
 				minutes = (Math.floor(val / 60) - (Math.floor(val / 3600) * 60)),
@@ -40,7 +47,7 @@
 				callback,
 				left = parseInt(timer.data(settings.data));
 			
-			timer.text(inttotime(left));
+			timer.text(intToTime(left));
 			
 			if (left > 0) {
 				timer.data(settings.data, left - 1);
