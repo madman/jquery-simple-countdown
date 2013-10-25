@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery-simple-countdown.js"></script>
+	</head>
+	<body>
+		<h1>Simple countdown as JQuery Plugin</h1>
+		<span id="countdown" data-time="10"></span>
+
+		<script type="text/javascript">
+			$(function() {
+				$('#countdown').countdown({step: 500}, function() {alert("The end!")});
+			});
+		</script>
+	</body>
+</html>
