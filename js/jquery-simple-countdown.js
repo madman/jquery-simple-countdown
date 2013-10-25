@@ -1,8 +1,8 @@
 /*!
- * jQuery Simple Countdown Plugin v1.0
+ * jQuery Simple Countdown Plugin v1.1
  * https://github.com/madman/jquery-simple-countdown
  *
- * Copyright 2013 Klaus Hartl
+ * Copyright 2013 Yuriy Prokopets
  * Released under the MIT license
  */
 (function($) {
@@ -14,9 +14,10 @@
 		}
 
 		var defaults = {
- 			data: 'time',
- 			flag: 'countdown',
- 			callback: 'callback',
+			date: 'time',
+			callback: 'callback',
+			step: 1000,
+			end: 'end'
 		};
 		var settings = $.extend({}, defaults, options);
 
@@ -30,45 +31,44 @@
 			if (hours < 10) {
 				hours = '0' + hours;
 			}
-		
+
 			if (minutes < 10) {
 				minutes = '0' + minutes;
 			}
-		
+
 			if (seconds < 10) {
 				seconds = '0' + seconds;
 			}
-			
+
 			return hours + ":" + minutes + ":" + seconds;
 		}
-		
+
 		var step = function(timer) {
 			var 
 				callback,
-				left = parseInt(timer.data(settings.data));
-			
+				left = timer.data(settings.end) - Math.round(new Date().getTime() / 1000);
+
 			timer.text(intToTime(left));
-			
+
 			if (left > 0) {
-				timer.data(settings.data, left - 1);
-				setTimeout(function() {step(timer)},1000);
+				setTimeout(function() {step(timer)}, settings.step);
 			} else if (callback = timer.data(settings.callback)) {
 				if ($.isFunction(callback)) {
 					callback.call(null, timer);
 				}
 			}
 		}
-	
+
 		return this.each(function() {
 			var self = $(this);
 
-	   		if (!self.data(settings.flag)) {
-				self.data(settings.flag, true);
+			if (!self.data(settings.end)) {
+				self.data(settings.end, Math.round(new Date().getTime() / 1000) + parseInt(self.data(settings.date)));
 				self.data(settings.callback, callback);
 				
 				step(self);
 			}
-	
-	    });
+
+		});
 	};
 }(jQuery));
