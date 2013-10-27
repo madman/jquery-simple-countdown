@@ -45,6 +45,9 @@ $('#countdown').countdown();
 $('.countdown').countdown();
 ```
 
+## Demo
+http://devcomm.org.ua/jcountdown
+
 ## Requirements
 
 * jQuery
