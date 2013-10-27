@@ -5,7 +5,7 @@ Simple countdown as JQuery plugin
 
 ## Usage
 
-1. Add `jcountdown.js` to your document
+1. Add `jquery-simple-countdown.js` to your document
 
 2. Prepare HTML code for countdown
 ```html
